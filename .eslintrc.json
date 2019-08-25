@@ -8,28 +8,6 @@
     "ecmaVersion": 8
   },
   "root": true,
-  "overrides": [
-    {
-      "files": ["webapp/**/*.js"],
-      "env": {
-        "node": false,
-        "browser": true,
-        "commonjs": true
-      },
-      "globals": {
-        "Doorbot": true,
-        "Backbone": true,
-        "Rivets": true,
-        "_": true
-      },
-      "rules": {
-        "strict": ["error", "never"]
-      }
-    }, {
-      "files": ["test/**/*.js"],
-      "env": { "mocha": true }
-    }
-  ],
   "rules": {
     "array-bracket-spacing": ["error", "never"],
     "arrow-parens": ["error", "as-needed", {

@@ -4,7 +4,7 @@ Multilang object-oriented parsers.
 
 ### Python
 
-`pip install git+git://github.com/thann/html_parser --user`
+`pip install git+git://github.com/thann/html-parser --user`
 ```python
 from html_parser import HTMLParser, attr_name
 
@@ -26,16 +26,31 @@ print(MyParser('<span>cool</span>'))
 
 ### Javascript
 
-`npm install thann/html_parser`
+`npm install thann/html-parser cheerio`
 
 ```javascript
-const { HTMLParser } = require('html_parser');
+const { HTMLParser } = require('html-parser');
 class MyParser extends HTMLParser {
     some_attribute($, extras) {
-      return $('span').text;
+      return $('span').text();
     }
 }
 
-console.log(MyParser('<span>cool</span>'))  ;
-# ==> {'some_attribute': 'cool'}
+console.log(new MyParser('<span>cool</span>'))  ;
+// MyParser { some_attribute: 'cool' }
+
 ```
+
+#### Async / Await
+```javascript
+class AsyncParser extends MyParser {
+    async other_attribute($, extras) {
+      return this.some_attribute() + 'er';
+    }
+}
+
+const ap = new AsyncParser('<span>cool</span>');
+console.log(await ap.promises());
+// AsyncParser { other_attribute: 'cooler', some_attribute: 'cool' }
+```
+

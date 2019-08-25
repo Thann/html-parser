@@ -11,10 +11,10 @@
   "scripts": {
     "lint": "eslint html_parser.js"
   },
-  "dependencies": {
+  "peerDependencies": {
     "cheerio": "^1.0.0-rc.3"
   },
   "devDependencies": {
-    "eslint": "^6.0.1"
+    "eslint": "^6.2.2"
   }
 }
